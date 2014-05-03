@@ -25,3 +25,6 @@ sudo apt-file update
 sudo add-apt-repository ppa:freefilesync/ffs
 sudo apt-get update
 sudo apt-get install freefilesync
+
+wget http://rr-project.org/releases/rr-1.3.0-Linux-$(uname -m).deb
+sudo dpkg -i rr-1.3.0-Linux-$(uname -m).deb
