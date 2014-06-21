@@ -1,0 +1,12 @@
+{
+  "name": "dev",
+  "description": "This box contains Debian Squeeze 6.0.9 32-bit.",
+  "versions": [{
+    "version": "0.1.0",
+    "providers": [{
+      "name": "virtualbox",
+      "checksum_type": "sha1",
+      "checksum": "c01be768acb739fde9a7cf55f8798ce2b27107d7"
+    }]
+  }]
+}
