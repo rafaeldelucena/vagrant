@@ -27,3 +27,12 @@ sudo apt-file update
 
 wget http://rr-project.org/releases/rr-1.3.0-Linux-$(uname -m).deb
 sudo dpkg -i rr-1.3.0-Linux-$(uname -m).deb
+
+# TCC
+
+sudo mkdir /usr/local/arm && sudo mkdir /usr/local/ia32
+cd /tmp/ && wget http://epos.lisha.ufsc.br/dl87 -o ia32-gcc.tar.xz && tar xf ia32-gcc.tar.gz && sudo mv gcc-4.4.4 /usr/local/ia32/gcc
+
+cd /tmp/ && wget http://epos.lisha.ufsc.br/dl88 -o arm-gcc.tar.xz && tar xf arm-gcc.tar.gz && sudo mv arm-gcc-4.4.4 /usr/local/arm/gcc
+
+cd /tmp/ && wget https://www.dropbox.com/s/xzno12idmt1ejyw/trunk.tar.gz -o epos-trunk.tar.gz && tar xf epos-trunk.tar.gz
