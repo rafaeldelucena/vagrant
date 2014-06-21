@@ -30,9 +30,17 @@ sudo dpkg -i rr-1.3.0-Linux-$(uname -m).deb
 
 # TCC
 
+retrieve_packet() {
+    cd /tmp/ && wget $1 -o "$2.tar.gz" && tar xf "$2.tar.gz"
+}
+
 sudo mkdir /usr/local/arm && sudo mkdir /usr/local/ia32
-cd /tmp/ && wget http://epos.lisha.ufsc.br/dl87 -o ia32-gcc.tar.xz && tar xf ia32-gcc.tar.gz && sudo mv gcc-4.4.4 /usr/local/ia32/gcc
+retrieve_packet http://epos.lisha.ufsc.br/dl87 ia32-gcc
+sudo mv gcc-4.4.4 /usr/local/ia32/gcc
+retrieve_packet http://epos.lisha.ufsc.br/dl88 arm-gcc
+sudo mv gcc-4.4.4 /usr/local/arm/gcc
+retrieve_packet https://www.dropbox.com/s/xzno12idmt1ejyw/trunk.tar.gz epos-trunk
+mv trunk ~/epos-trunk
+cd ~/epos-trunk && git init && git remote add origin https://github.com/rafaeldelucena/tcc-code.git && git fetch origin
 
-cd /tmp/ && wget http://epos.lisha.ufsc.br/dl88 -o arm-gcc.tar.xz && tar xf arm-gcc.tar.gz && sudo mv arm-gcc-4.4.4 /usr/local/arm/gcc
-
-cd /tmp/ && wget https://www.dropbox.com/s/xzno12idmt1ejyw/trunk.tar.gz -o epos-trunk.tar.gz && tar xf epos-trunk.tar.gz
+cd && git clone https://github.com/contiki-os/contiki.git
