@@ -1,7 +1,4 @@
-USER="rafaeldelucena"
-PASSWORD="r0ck&R0!!"
 VERSION="squeeze"
-
 
 sudo echo "deb http://www.emdebian.org/debian ${VERSION} main" >> /etc/apt/sources.list
 
@@ -18,7 +15,7 @@ sudo apt-get -y install msp430mcu msp430-libc gcc-msp430 gdb-msp430 binutils-msp
 git clone https://github.com/cpputest/cpputest.git && cd cpputest && ./configure && make && sudo make install
 mkdir -f ~/.vim/tags && cd ~/.vim/tags && ctags "-R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f  cpputest ~/cpputest/"
 
-cd ~/ && git clone https://${USER}:${PASSWORD}@bitbucket.org/rafaeldelucena/configurations.git && cp ~/configurations/* ~/
+cd ~/ && git clone https://github.com/rafaeldelucena/configurations.git && cp ~/configurations/* ~/
 
 sudo apt-file update
 
