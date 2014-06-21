@@ -7,7 +7,7 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "debian-6.0.9-i386"
+  config.vm.box = "dev"
   config.vm.network :bridged
 
   # The url from where the 'config.vm.box' box will be fetched if it
