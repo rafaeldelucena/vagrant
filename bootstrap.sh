@@ -31,7 +31,8 @@ sudo dpkg -i rr-1.3.0-Linux-$(uname -m).deb
 # TCC
 
 retrieve_packet() {
-    cd /tmp/ && wget $1 -o "$2.tar.gz" && tar xf "$2.tar.gz"
+    cd /tmp/ && wget $1 -o "$2.tar.gz"
+    cd /tmp/ && tar xf "$2.tar.gz"
 }
 
 sudo mkdir /usr/local/arm && sudo mkdir /usr/local/ia32
@@ -43,4 +44,4 @@ retrieve_packet https://www.dropbox.com/s/xzno12idmt1ejyw/trunk.tar.gz epos-trun
 mv trunk /home/vagrant/epos-trunk
 cd /home/vagrant/epos-trunk && git init && git remote add origin https://github.com/rafaeldelucena/tcc-code.git && git fetch origin
 
-cd && git clone https://github.com/contiki-os/contiki.git
+cd /home/vagrant/ && git clone https://github.com/contiki-os/contiki.git
