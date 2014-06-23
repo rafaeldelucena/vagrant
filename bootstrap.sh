@@ -40,7 +40,7 @@ sudo mv gcc-4.4.4 /usr/local/ia32/gcc
 retrieve_packet http://epos.lisha.ufsc.br/dl88 arm-gcc
 sudo mv gcc-4.4.4 /usr/local/arm/gcc
 retrieve_packet https://www.dropbox.com/s/xzno12idmt1ejyw/trunk.tar.gz epos-trunk
-mv trunk ~/epos-trunk
-cd ~/epos-trunk && git init && git remote add origin https://github.com/rafaeldelucena/tcc-code.git && git fetch origin
+mv trunk /home/vagrant/epos-trunk
+cd /home/vagrant/epos-trunk && git init && git remote add origin https://github.com/rafaeldelucena/tcc-code.git && git fetch origin
 
 cd && git clone https://github.com/contiki-os/contiki.git
