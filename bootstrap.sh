@@ -1,10 +1,7 @@
 VERSION="squeeze"
 
 
-sudo apt-get update && sudo apt-get install gpg
-
-gpg --keyserver pgpkeys.mit.edu --recv-key B5B7720097BB3B58
-gpg -a --export 010908312D230C5F | sudo apt-key add -
+sudo apt-get update && sudo apt-get -y install gpg emdebian-archive-keyring
 
 sudo echo "deb http://www.emdebian.org/debian ${VERSION} main" >> /etc/apt/sources.list
 
@@ -44,3 +41,11 @@ mv trunk ~/epos-trunk
 cd ~/epos-trunk && git init && git remote add origin https://github.com/rafaeldelucena/tcc-code.git && git fetch origin
 
 cd && git clone https://github.com/contiki-os/contiki.git
+
+# Node dependencies
+sudo apt-get update && sudo apt-get -y install git-core curl build-essential openssl libssl-dev
+cd && git clone https://github.com/joyent/node.git && cd node && ./configure && make && make test && make install
+
+LIBCOAP_VERSION=4.1.1
+# LibCoap
+wget http://downloads.sourceforge.net/project/libcoap/coap-18/libcoap-$(LIBCOAP_VERSION).tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Flibcoap%2F&ts=1403807516&use_mirror=ufpr -o libcoap-$(LIBCOAP_VERSION).tar.gz
