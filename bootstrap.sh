@@ -28,7 +28,8 @@ sudo dpkg -i rr-1.3.0-Linux-$(uname -m).deb
 # TCC
 
 retrieve_packet() {
-    cd /tmp/ && wget $1 -o "$2.tar.gz" && tar xf "$2.tar.gz"
+    cd /tmp/ && wget $1 -o "$2.tar.gz"
+    cd /tmp/ && tar xf "$2.tar.gz"
 }
 
 sudo mkdir /usr/local/arm && sudo mkdir /usr/local/ia32
@@ -37,15 +38,15 @@ sudo mv gcc-4.4.4 /usr/local/ia32/gcc
 retrieve_packet http://epos.lisha.ufsc.br/dl88 arm-gcc
 sudo mv gcc-4.4.4 /usr/local/arm/gcc
 retrieve_packet https://www.dropbox.com/s/xzno12idmt1ejyw/trunk.tar.gz epos-trunk
-mv trunk ~/epos-trunk
-cd ~/epos-trunk && git init && git remote add origin https://github.com/rafaeldelucena/tcc-code.git && git fetch origin
+mv trunk /home/vagrant/epos-trunk
+cd /home/vagrant/epos-trunk && git init && git remote add origin https://github.com/rafaeldelucena/tcc-code.git && git fetch origin
 
-cd && git clone https://github.com/contiki-os/contiki.git
+cd /tmp/ && git clone https://github.com/contiki-os/contiki.git
 
 # Node dependencies
 sudo apt-get update && sudo apt-get -y install git-core curl build-essential openssl libssl-dev
-cd && git clone https://github.com/joyent/node.git && cd node && ./configure && make && make test && make install
+cd /tmp/ && git clone https://github.com/joyent/node.git && cd node && ./configure && make && make test && make install
 
 LIBCOAP_VERSION=4.1.1
 # LibCoap
-wget http://downloads.sourceforge.net/project/libcoap/coap-18/libcoap-$(LIBCOAP_VERSION).tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Flibcoap%2F&ts=1403807516&use_mirror=ufpr -o libcoap-$(LIBCOAP_VERSION).tar.gz
+cd /tmp/ && wget http://downloads.sourceforge.net/project/libcoap/coap-18/libcoap-$(LIBCOAP_VERSION).tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Flibcoap%2F&ts=1403807516&use_mirror=ufpr -o libcoap-$(LIBCOAP_VERSION).tar.gz
